@@ -76,3 +76,43 @@ Generated outputs include:
 - `search_results.csv`: Empirical reaction times from 18 search trials.
 - `channel_results.csv`: Empirical ratio estimates and absolute error across 30 perceptual channel trials.
 - `perception_redesign.png`: 300 DPI publication-grade figure of the Gapminder life expectancy redesign.
+
+## Assignment 3
+
+Assignment 3 is implemented as five separate Jupyter notebooks that follow
+the Week 3 Matplotlib and Seaborn brief in `Assignment 3/TASKS.md`. The
+notebooks rebuild misleading charts, compute visual audits, test accessible
+colour palettes, produce a clinical review figure, and document the design
+decisions and data-cleaning rules.
+
+| Notebook | Topic | Data | Key Concepts & Findings |
+| --- | --- | --- | --- |
+| `task1.ipynb` | Rebuilding and diagnosing nine charts | `case01`–`case07`, `vitals_10k.csv` | Rebuilds the published recipes, checks their self-check values, identifies the actual mechanism behind each misleading claim, and plots honest redesigns. |
+| `task2.ipynb` | Lie Factor audit | `case07_lie_factor.csv`, `case07_dual_axis_series.csv` | Computes Tufte's Lie Factor with `vizlib.lie_factor()`, identifies exaggerated and understated graphics, handles area encodings, and explains why a dual-axis chart has no single Lie Factor. |
+| `task3.ipynb` | Colour-vision deficiency and palette safety | Course palette and a Matplotlib palette | Creates normal-vision and CVD simulation swatches, measures the closest colour pair with OKLab ΔE, and states when direct labels or a second visual channel are required. |
+| `task4.ipynb` | Clinical review figure | `vitals_10k.csv` | Cleans ward names and mixed date formats, records BMI and heart-rate data-quality issues, and exports a 300 DPI 2×2 figure with a histogram, ward box plot, scatter plot, and signed correlation heatmap. |
+| `task5.ipynb` | Written justification | `partD_figure.png` from Task 4 | Provides the one-page justification for chart choices, visual channels, declared parameters, exclusions, and the ethics rule for removing device-fault readings. |
+
+The `Assignment 3` folder also contains the Week 3 task brief, the shared
+toolkit (`vizlib.py`), the copied `starter/` files, the data dictionary, and
+all ten bundled synthetic datasets. To check the bundled data and open the
+notebooks:
+
+```bash
+cd "Assignment 3"
+python download_assignment_data.py
+jupyter notebook
+```
+
+The data checker is named for consistency with the earlier assignments. The
+Week 3 data is already included in `Assignment 3/data/`, so the script
+validates that all ten required datasets are present rather than downloading
+them from the internet. Install the notebook dependencies if needed:
+
+```bash
+pip install pandas numpy matplotlib seaborn scipy jupyter ipykernel
+```
+
+Task 4 produces `partD_figure.png` when executed. Task 1 and Task 3 also
+produce the saved chart and palette-analysis figures described in their
+notebooks.
